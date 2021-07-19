@@ -22,7 +22,6 @@
       </form>
       <button onclick="getLocation()">Localizzami</button>
     </div>
-    
     <p id="pos"></p>
     
     <script>
@@ -48,16 +47,14 @@
         .then(json => {
           classeFetch = json;
           console.log(classeFetch);
-         
+
           if (classeFetch['address']['country'] = "Italy" && classeFetch['address']['postcode'] in listcap ){
             if (classeFetch['address']['road']){  //gestione casi in cui la via è presente.
               document.getElementById("indirizzo").value= classeFetch['address']['road'];
-
             }
             if(classeFetch['address']['house_number']){    // gestione casi in cui il numero è presente.
               document.getElementById("ncivico").value= classeFetch['address']['house_number'];
             }
-
             document.getElementById("nazione").value= classeFetch['address']['country'];
             document.getElementById("citta").value= classeFetch['address']['town'] || classeFetch['address']['city'] ;
             document.getElementById("latitudine").value = position.coords.latitude;
@@ -67,9 +64,7 @@
           else{
             alert("Zona non supportata");
           }
-         
-        });
-        
+        });      
       }
     </script>
   </body>
